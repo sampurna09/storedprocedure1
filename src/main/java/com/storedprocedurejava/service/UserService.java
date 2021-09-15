@@ -7,6 +7,8 @@ import com.storedprocedurejava.domain.User;
 public interface UserService {
 
 	List<User> getUsers();
+
+	List<User> getSpecificUser(String username);
 	
 	
 

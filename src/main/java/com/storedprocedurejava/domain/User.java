@@ -2,10 +2,17 @@ package com.storedprocedurejava.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQueries;
 import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 
 @Entity
-@NamedStoredProcedureQuery(name = "getAllUser", procedureName = "get_all_users")
+@NamedStoredProcedureQueries(
+		{@NamedStoredProcedureQuery(name="getAllUser",procedureName="get_all_users"),
+			@NamedStoredProcedureQuery(name="specificUser",procedureName="specific_user",
+			parameters= {@StoredProcedureParameter(mode=ParameterMode.IN,name="tusername",type = String.class)})})
+
 public class User {
 	@Id
 	private Long id;

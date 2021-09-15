@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
 		return userRepository.getUsers();
 	}
 
+
+	@Override
+	public List<User> getSpecificUser(String username) {
+		return userRepository.getSpecificUser(username);
+	}
+
 }

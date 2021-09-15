@@ -29,6 +29,11 @@ public class UserRepository {
 	public List<User> getUsers(){
 		return entityManager.createNamedStoredProcedureQuery("getAllUser").getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<User> getSpecificUser(String input) {
+		return entityManager.createNamedStoredProcedureQuery("specificUser").setParameter("tusername", input).getResultList();
+	}
 
 	
 }
